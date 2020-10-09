@@ -3,7 +3,6 @@ bd	${XDG_CONFIG_HOME:-$HOME/.config}/directories
 bw	${XDG_CONFIG_HOME:-$HOME/.config}/bookmarks
 cfa	${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc
 cfi	${XDG_CONFIG_HOME:-$HOME/.config}/i3/config
-cfb	${XDG_CONFIG_HOME:-$HOME/.config}/i3blocks/config
 cfd	${XDG_CONFIG_HOME:-$HOME/.config}/dunst/dunstrc
 cfk	${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/sxhkdrc
 cfm	${XDG_CONFIG_HOME:-$HOME/.config}/mutt/muttrc

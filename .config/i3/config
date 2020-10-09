@@ -38,15 +38,15 @@ for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
 for_window [instance="dropdown_tmuxdd"] resize set 625 450
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
-for_window [instance="dropdown_tmuxdd"] border pixel 0
-for_window [instance="dropdown_dropdowncalc"] border pixel 0
+for_window [instance="dropdown_tmuxdd"] border pixel 3
+for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 
 # -------------- #
 # Basic Bindings #
 # -------------- #
-bindsym $mod+Return			 			exec $term
+bindsym $mod+Return			 			split horizontal ;; exec $term
 bindsym $mod+Shift+Return			exec $term -e bash ~/.config/vifm/scripts/vifmrun
 
 bindsym $mod+Shift+space			floating toggle
@@ -59,7 +59,7 @@ bindsym $mod+Shift+BackSpace	exec --no-startup-id prompt "Reboot computer?" "$re
 bindsym $mod+grave						exec --no-startup-id dmenuunicode
 
 # Stop/ Hide Everything:
-bindsym $mod+Shift+Delete			exec --no-startup-id lmc mute ; exec --no-startup-id mpc pause && pkill -RTMIN+10 i3blocks; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e vtop ; exec $term -e $FILE
+bindsym $mod+Shift+Delete			exec --no-startup-id mpc pause && pkill -RTMIN+10 i3blocks; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e vtop ; exec $term -e $FILE
 
 # Show selection:
 bindsym $mod+Insert						exec --no-startup-id notify-send "📋 Clipboard contents:" "$(xclip -o -selection clipboard)"
@@ -79,8 +79,8 @@ bindsym $mod+e					exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+r					exec $term -e $FILE
 bindsym $mod+Shift+r		exec --no-startup-id winresize
 
-bindsym $mod+t					split typora
-bindsym $mod+Shift+t		split toggle
+bindsym $mod+t					split toggle
+bindsym $mod+Shift+t		gaps inner current set $inner_gaps; gaps outer current set $outer_gaps; gaps top current set $top_gaps
 
 bindsym $mod+y					exec $term -e calcurse
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
@@ -139,6 +139,7 @@ bindsym $mod+Shift+x 		exec ~/.local/bin/rofi/launch.sh powermenu
 bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 bindsym $mod+v					exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
+bindsym $mod+Shift+v		exec --no-startup-id typora
 
 bindsym $mod+b					bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
@@ -153,24 +154,24 @@ bindsym $mod+Shift+m		exec --no-startup-id pulsemixer --toggle-mute && pkill -RT
 # ------------------ #
 # Workspace Bindings #
 # ------------------ #
-bindsym $mod+Home		workspace $ws1
-bindsym $mod+Shift+Home		move container to workspace $ws1
-bindsym $mod+End		workspace $ws10
-bindsym $mod+Shift+End		move container to workspace $ws10
-bindsym $mod+Prior		workspace prev
-bindsym $mod+Shift+Prior	move container to workspace prev
-bindsym $mod+Next		workspace next
-bindsym $mod+Shift+Next		move container to workspace next
-bindsym $mod+Tab		workspace back_and_forth
-bindsym $mod+XF86Back		workspace prev
-bindsym $mod+Shift+XF86Back	move container to workspace prev
-bindsym $mod+XF86Forward	workspace next
+bindsym $mod+Home								workspace $ws1
+bindsym $mod+Shift+Home					move container to workspace $ws1
+bindsym $mod+End								workspace $ws10
+bindsym $mod+Shift+End					move container to workspace $ws10
+bindsym $mod+Prior							workspace prev
+bindsym $mod+Shift+Prior				move container to workspace prev
+bindsym $mod+Next								workspace next
+bindsym $mod+Shift+Next					move container to workspace next
+bindsym $mod+Tab								workspace back_and_forth
+bindsym $mod+XF86Back						workspace prev
+bindsym $mod+Shift+XF86Back			move container to workspace prev
+bindsym $mod+XF86Forward				workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
-bindsym $mod+semicolon		workspace next
-bindsym $mod+apostrophe		split horizontal ;; exec $term
-bindsym $mod+slash		split vertical ;; exec $term
-bindsym $mod+Shift+slash	kill
-bindsym $mod+backslash		workspace back_and_forth
+bindsym $mod+semicolon					workspace next
+bindsym $mod+apostrophe					split horizontal ;; exec $term
+bindsym $mod+slash							split vertical ;; exec $term
+bindsym $mod+Shift+slash				kill
+bindsym $mod+backslash					workspace back_and_forth
 
 set $ws1 "1"
 set $ws2 "2"
@@ -221,6 +222,7 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+
 # ---------------- #
 # Function Buttons #
 # ---------------- #
@@ -230,11 +232,12 @@ bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"
 bindsym $mod+F5		exec --no-startup-id $netrefresh
 bindsym $mod+F6		exec --no-startup-id torwrap
 bindsym $mod+F7		exec --no-startup-id td-toggle
-bindsym $mod+F8		exec --no-startup-id mailsync
+bindsym $mod+F8		exec --no-startup-id mw sync
 bindsym $mod+F9		exec --no-startup-id dmenumount
 bindsym $mod+F10	exec --no-startup-id dmenuumount
 bindsym $mod+F11	exec --no-startup-id ducksearch
 bindsym $mod+F12	exec $term -e nmtui
+
 
 # ---------- #
 # Arrow Keys #
@@ -251,6 +254,7 @@ bindsym $mod+Ctrl+Up	    move workspace to output up
 bindsym $mod+Right	      focus right
 bindsym $mod+Shift+Right  move right
 bindsym $mod+Ctrl+Right	  move workspace to output right
+
 
 # ---------- #
 # Media Keys #
