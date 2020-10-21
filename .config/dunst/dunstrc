@@ -13,7 +13,8 @@
 
 	# The geometry of the window
 	#   [{width}]x{height}[+/-{x}+/-{y}]
-	geometry = "270x60-25+60"
+	# geometry = "270x60-25+60"
+	geometry = "300x60-20+48"
 
 	# Show how many messages are hidden
 	indicate_hidden = yes
@@ -28,7 +29,7 @@
 	notification_height = 0
 
 	# Draw a line between multiple notifications
-	separator_height = 3
+	separator_height = 1
 	separator_color = "#ffffffaa"
 
 	# Set notification padding
@@ -42,7 +43,8 @@
 	sort = no
 
 	# Disable idle time
-	idle_threshold = 0
+	# idle_threshold = 0
+	idle_threshold = 120
 
 
 	# -- text -- #
@@ -69,7 +71,8 @@
 	#  %% Literal %
 
 	markup = full
-	format = "<b>%a</b>\n%s"
+	# format = "<b>%a</b>\n%s"
+	format = %s\n%b
 
 	# Left align the text
 	alignment = left

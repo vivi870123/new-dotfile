@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "📐" | dmenu -x 24 -y 24 -w 1318 -h 36 -p "Give width and height:" | xargs xdotool windowsize "$(xdotool getwindowfocus)"

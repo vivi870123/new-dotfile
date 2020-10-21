@@ -6,3 +6,4 @@
 # `./prompt "Do you want to shutdown?" "shutdown -h now"`
 
 [ "$(printf "No\\nYes" | dmenu  -x 24 -y 24 -w 1318 -h 36 -p "$1" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
+

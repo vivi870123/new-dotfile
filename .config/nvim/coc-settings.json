@@ -3,9 +3,8 @@
 
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.colorSupport": true,
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": false,
   "coc.preferences.enableFloatHighlight": true,
-  "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.formatOnSaveFiletypes": [
     /* "css", */
     "markdown",
@@ -17,7 +16,7 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.jumpCommand": "edit",
-  "coc.preferences.messageLevel": "error",
+  "coc.preferences.messageLevel": "more",
   "coc.preferences.previewAutoClose": true,
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "coc.preferences.snippets.enable": true,
@@ -50,6 +49,7 @@
   "cSpell.language": "en-GB",
   "cSpell.showStatus": false,
   "cSpell.enabledLanguageIds": [
+    "vim",
     "css",
     "git-commit",
     "json",
@@ -60,7 +60,6 @@
     "text",
     "typescript",
     "typescriptreact",
-    "vim",
     "yaml",
     "yml"
   ],
@@ -121,18 +120,27 @@
   "eslint.autoFixOnSave": false,
   "eslint.packageManager": "yarn",
 
-  "git.enableGutters": false,
+  "git.enableGutters": true,
+  "git.branchCharacter": "4",
+  "git.addGBlameToBufferVar": true,
+  "git.addGBlameToVirtualText": false,
+  "git.virtualTextPrefix": " ❯❯❯ ",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.addedSign.text": "▎",
+  "git.changedSign.text": "▎",
+  "git.removedSign.text": "▏",
+  "git.topRemovedSign.text": "▔",
+  "git.changeRemovedSign.text": "▋",
 
   "highlight.colors.enable": true,
   "highlight.document.enable": false,
-
+	
   "intelephense.format.enable": true,
-  "intelephense.licenceKey": "~/intelephense/licence.txt",
-  "intelephense.phpdoc.returnVoid": true,
-  "intelephense.diagnostics.enable": true,
-  "intelephense.completion.maxItems": 20,
-  "intelephense.completion.triggerParameterHints": true,
-  "intelephense.environment.phpVersion": "7.4.0",
+
   "intelephense.stubs": [
     "com_dotnet",
     "Core",
@@ -173,27 +181,8 @@
 		"bash": {
 			"command": "bash-language-server",
 			"args": ["start"],
-			"filetypes": ["sh", "bash"],
+			"filetypes": ["sh"],
 			"ignoredRootPaths": ["~"]
-		},
-		"lua-language-server": {
-			"command": "lua-language-server",
-			"filetypes": ["lua"],
-			"settings": {
-				"Lua": {
-					"completion": { /* keywordSnippet = "Disable"; */ },
-					"runtime": { "version": "LuaJIT" },
-					"diagnostics": {
-						"enable": true,
-						"globals": [ "vim", "Color", "c", "Group", "g", "s", "describe", "it", "before_each", "after_each"]
-					}
-				}
-			}
-		},
-		"yaml-language-server": {
-			"command": "yaml-language-server",
-			"args": ["--stdio"],
-			"filetypes": ["yaml"]
 		}
 	},
 
@@ -230,7 +219,11 @@
     "default": true
   },
 
-  "phpls.enable": true,
+	"pairs.alwaysPairCharacters": ["\""],
+	"pairs.enableBackspace": true,
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+
+  "phpls.enable": false,
 
   "prettier.disableSuccessMessage": true,
   "prettier.onlyUseLocalVersion": false,
@@ -256,9 +249,8 @@
     "javascriptreact": ["javascript"],
     "typescriptreact": ["typescript"]
   },
-
   "snippets.loadFromExtensions": false,
-  "snippets.priority": 100,
+  "snippets.priority": 1,
   "snippets.snipmate.enable": false,
   "snippets.shortcut": "S",
   "snippets.triggerCharacters": [".", "t"],
@@ -322,7 +314,6 @@
 
 
   "tsserver.enableJavascript": true,
-  "tsserver.reportStyleChecksAsWarnings": true,
   "tsserver.formatOnType": true,
   "tsserver.locale": "en-gb",
 
@@ -341,18 +332,83 @@
   "typescript.updateImportsOnFileMove.enable": true,
   "typescript.validate.enable": true,
 
+  "vimlsp.debug": true,
   "vimlsp.diagnostic.enable": false,
-  "vimlsp.indexes.runtimepath": false,
 
   "workspace.ignoredFiletypes": ["markdown", "log", "txt", "help"],
 
-  "yaml.format.enable": true,
-  "yaml.validate": false,
-  "yaml.schemas": { "http://json.schemastore.org/ansible-stable-2.9": "*" },
-  "yaml.trace.server": "verbose",
-
 	"yank.highlight.enable": true,
-	"yank.highlight.duration": 250
+	"yank.highlight.duration": 250,
+	
+	"explorer.previewAction.onHover": true,
+	"explorer.position": "right",
+	"explorer.toggle": true,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.floating.width": 50,
+	"explorer.keyMappingMode": "none",
+	"explorer.keyMappings": {
+		"i": false, // cancel default mapkey
+
+		"<cr>": ["expandable?", "cd", "open"],
+
+		"gk": "expandablePrev",
+		"gj": "expandableNext",
+		"gl": "expand:recursive",
+		"gh": "collapse:recursive",
+
+		"h": "collapse",
+		"l": ["expandable?", "expand", "open"],
+		"J": ["toggleSelection", "nodeNext"],
+		"K": ["toggleSelection", "nodePrev"],
+
+		"cc": "copyFile",
+		"yy": "copyFilepath",
+		"yf": "copyFilename",
+		"p":	"pasteFile",
+
+		"sv": "open:split",
+		"sV": "open:split:plain",
+		"sg": "open:vsplit",
+		"st": "open:tab",
+
+		"<bs>": "gotoParent",
+		"gp": "preview:labeling",
+
+		"o": ["expanded?", "collapse", "expand"],
+
+		"dd": "delete",
+		"dD": "deleteForever",
+
+		"n": "addFile",
+		"N": "addDirectory",
+		"r": "rename",
+
+		".": "toggleHidden",
+		"R": "refresh",
+
+		"f": "search",
+		"F": "searchRecursive",
+
+		"gf": "gotoSource:file",
+		"gb": "gotoSource:buffer",
+
+		"?": "help",
+		"q":"quit",
+		"<esc>":"esc",
+		"X": "systemExecute",
+		"gd": "listDrive",
+
+		"[[": "sourcePrev",
+		"]]": "sourceNext",
+
+		"[d": "diagnosticPrev",
+		"]d": "diagnosticNext",
+
+		"[c": "gitPrev",
+		"]c": "gitNext",
+		"<<": "gitStage",
+		">>": "gitUnstage"
+	}
 }
 
-/* vim set ft=jsonc */
+/* vim: set ft=jsonc foldmethod=marker ts=2 sw=2 tw=80 noet : */

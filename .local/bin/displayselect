@@ -7,11 +7,11 @@
 
 twoscreen() { # If multi-monitor is selected and there are two screens.
 
-    mirror=$(printf "no\\nyes" | dmenu -x 14 -y 8 -w 1340 -h 35 -p "Mirror displays?") in
+    mirror=$(printf "no\\nyes" | dmenu -x 24 -y 24 -w 1318 -h 35 -p "Mirror displays?") in
     # Mirror displays using native resolution of external display and a scaled
     # version for the internal display
     if [ "$mirror" = "yes" ]; then
-        external=$(echo "$screens" | dmenu  -x 14 -y 8 -w 1340 -h 35 -p "Optimize resolution for:")
+        external=$(echo "$screens" | dmenu  -x 24 -y 24 -w 1318 -h 35 -p "Optimize resolution for:")
         internal=$(echo "$screens" | grep -v "$external")
 
         res_external=$(xrandr --query | sed -n "/^$external/,/\+/p" | \
@@ -32,18 +32,18 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
             --scale "$scale_x"x"$scale_y"
     else
 
-        primary=$(echo "$screens" | dmenu  -x 14 -y 8 -w 1340 -h 35 -p "Select primary display:")
+        primary=$(echo "$screens" | dmenu  -x 24 -y 24 -w 1318 -h 35 -p "Select primary display:")
         secondary=$(echo "$screens" | grep -v "$primary")
-        direction=$(printf "above\\nbelow\\nleft-of\\nright-of" | dmenu  -x 14 -y 8 -w 1340 -h 35 -p "What side of $primary should $secondary be on?")
+        direction=$(printf "above\\nbelow\\nleft-of\\nright-of" | dmenu  -x 24 -y 24 -w 1318 -h 35 -p "What side of $primary should $secondary be on?")
         xrandr --output "$primary" --auto --scale 1.0x1.0 --output "$secondary" --"$direction" "$primary" --auto --scale 1.0x1.0
     fi
     }
 
 morescreen() { # If multi-monitor is selected and there are more than two screens.
-	primary=$(echo "$screens" | dmenu -x 14 -y 8 -w 1340 -h 35  -p "Select primary display:")
-	secondary=$(echo "$screens" | grep -v "$primary" | dmenu -x 14 -y 8 -w 1340 -h 35  -p "Select secondary display:")
-	direction=$(printf "above\\nbelow\\nleft-of\\nright-of" | dmenu -x 14 -y 8 -w 1340 -h 35  -p "What side of $primary should $secondary be on?")
-	tertiary=$(echo "$screens" | grep -v "$primary" | grep -v "$secondary" | dmenu -x 14 -y 8 -w 1340 -h 35  -p "Select third display:")
+	primary=$(echo "$screens" | dmenu -x 24 -y 24 -w 1318 -h 35  -p "Select primary display:")
+	secondary=$(echo "$screens" | grep -v "$primary" | dmenu -x 24 -y 24 -w 1318 -h 35  -p "Select secondary display:")
+	direction=$(printf "above\\nbelow\\nleft-of\\nright-of" | dmenu -x 24 -y 24 -w 1318 -h 35  -p "What side of $primary should $secondary be on?")
+	tertiary=$(echo "$screens" | grep -v "$primary" | grep -v "$secondary" | dmenu -x 24 -y 24 -w 1318 -h 35  -p "Select third display:")
 	xrandr --output "$primary" --auto --output "$secondary" --"$direction" "$primary" --auto --output "$tertiary" --"$(printf "above\\nbelow\\nleft-of\\nright-of" | grep -v "$direction")"-of "$primary" --auto
 	}
 

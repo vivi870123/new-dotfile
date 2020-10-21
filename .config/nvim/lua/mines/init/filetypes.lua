@@ -5,12 +5,8 @@ __LUA_FILETYPE_HOOKS = {
   help = require "mines/init/filetypes/help",
   lua = require 'mines/init/filetypes/lua',
   magit = require 'mines/init/filetypes/magit',
-  markdown = require 'mines/init/filetypes/qf',
   php = require 'mines/init/filetypes/php',
-  python = require 'mines/init/filetypes/python',
-  qf = require 'mines/init/filetypes/qf',
   startify = require 'mines/init/filetypes/startify',
-  typescript = require 'mines/init/filetypes/typescript',
 }
 
 local autocmds = {}

@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/home/chris/.config/nvim_lsp'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/chris/.config/nvim1/lua/mines/init'
+let g:netrw_dirhist_2='/home/chris/.config/nvim1/lua/mines'
+let g:netrw_dirhist_1='/home/chris/.config/nvim1/lua'
+let g:netrw_dirhist_0='/home/chris/.config/nvim1'
+let g:netrw_dirhist_9='/home/chris/.config/nvim/config'
+let g:netrw_dirhist_8='/home/chris/.config/nvim'
+let g:netrw_dirhist_7='/home/chris/.config/nvim/autoload'
+let g:netrw_dirhist_6='/home/chris/.config/nvim'
+let g:netrw_dirhist_5='/home/chris'
+let g:netrw_dirhist_4='/home/chris/.config'

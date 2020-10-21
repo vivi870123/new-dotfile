@@ -83,8 +83,6 @@ function homestead() {
 export ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 export ZSH_TMUX_AUTOSTART=true
 
-eval "$(pyenv virtualenv-init -)"
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 

@@ -43,10 +43,6 @@ local mappings = {
   ['nga']	= { [[<plug>(EasyAlign)]], silent = true},
   ['xga']	= { [[<plug>(EasyAlign)]], silent = true},
 
-  -- vim-edgemotion
-  ['xgj']	= { [[<plug>(edgemotion-j)]]},
-  ['xgk']	= { [[<plug>(edgemotion-k)]]},
-
   -- vim-highlightedundo
   ['n u']	    = {[[<plug>(highlightedundo-undo)]], noremap = false},
   ['n <c-r>']	= {[[<plug>(highlightedundo-redo)]], noremap = false},
@@ -213,9 +209,9 @@ local mappings = {
 
   ['i<C-Space>'] = { [[coc#refresh()]], silent = true, expr = true },
 
-  ['n<CR>']  = { [[za]], description = 'Toggle Fold' },
-  ['n<BS>']  = { [[%]], description = 'Matchit' },
-  ['x<BS>']  = { [[%]], description = 'Matchit X' },
+  ['n<CR>']  = { [[za]], noremap = false },
+  ['n<BS>']  = { [[%]], noremap = false },
+  ['x<BS>']  = { [[%]], noremap = false },
 
   ['ijk'] = { [[<esc>]], description = 'Exit insert mode' },
   ['nU'] = { [[<C-r>]], description = 'Redo' },
@@ -270,7 +266,7 @@ local mappings = {
   ['n bK'] = { function() mines.buf.delete_buffers_fzf() end, description = 'Wipe buffers' },
   ['n bb'] = { [[<Cmd>FzfPreviewBuffers<CR>]], description = 'List buffers' },
   ['n bY'] = { [[ggyG]], description = 'Yank buffer' },
-  ['n bm'] = { [[:<C-u>cgetexpr bm#location_list()<CR> :<C-u>Quickfix<CR>]], description = 'Bookmark List' },
+  ['n bm'] = { [[:<C-u>cgetexpr bm#location_list()<CR> :<C-u>FzfPreviewBookmarks<CR>]], description = 'Bookmark List' },
   ['n bt'] = { [[<plug>BookmarkToggle]], description = 'Set mark' },
 
   -- Window mappings <leader>w
@@ -430,7 +426,6 @@ local mappings = {
   ['n gfp'] = { function() unimplemented() end, description = 'Find pull request' },
 
   -- Terminal mappings <leader>wt
-  ['n wtt'] = { function() mines.term.float(true) end, description = 'Float terminal' },
   ['n wtv'] = { function()
     vim.api.nvim_command("sp")
     mines.term.open_term()
@@ -595,6 +590,9 @@ vim.api.nvim_command [[map n <plug>(is-nohl)<plug>(anzu-n)]]
 vim.api.nvim_command [[map N <plug>(is-nohl)<plug>(anzu-N)]]
 vim.api.nvim_command [[map * <plug>(asterisk-g*)<plug>(is-nohl-1)]]
 vim.api.nvim_command [[map # <plug>(asterisk-g#)<plug>(is-nohl-1)]]
+
+vim.api.nvim_command [[map <C-j> <Plug>(edgemotion-j)]]
+vim.api.nvim_command [[map <C-k> <Plug>(edgemotion-k)]]
 
 -- I can't get the following mappings to work in lua...
 vim.api.nvim_command [[

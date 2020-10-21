@@ -9,15 +9,13 @@
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="vifm"
-export LAUNCHER="dmenu_run"
 export FILEBROWSER="$TERMINAL -e bash $HOME/.config/vifm/scripts/vifmrun"
 export MUSIC="ncmpcpp"
 export EMAIL="neomutt"

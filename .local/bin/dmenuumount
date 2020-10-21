@@ -6,20 +6,20 @@
 
 unmountusb() {
 	[ -z "$drives" ] && exit
-	chosen="$(echo "$drives" | dmenu -x 14 -y 8 -w 1340 -h 35 -i -p "Unmount which drive?")" || exit 1
+	chosen="$(echo "$drives" | dmenu -x 20 -y 20 -w 1318 -h 35 -i -p "Unmount which drive?")" || exit 1
 	chosen="$(echo "$chosen" | awk '{print $1}')"
 	[ -z "$chosen" ] && exit
 	sudo -A umount "$chosen" && dunstify -u low -r 8000 -i "~/.config/appearance/icons/drive-removable-media.svg" "$chosen unmounted."
 }
 
 unmountandroid() { \
-	chosen="$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -x 14 -y 8 -w 1340 -h 35 -i -p "Unmount which device?")" || exit 1
+	chosen="$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -x 20 -y 20 -w 1318 -h 35 -i -p "Unmount which device?")" || exit 1
 	[ -z "$chosen" ] && exit
 	sudo -A umount -l "$chosen" && dunstify -u low -r 8000 -i "~/.config/appearance/icons/android.png" "$chosen unmounted."
 }
 
 asktype() { \
-	choice="$(printf "USB\\nAndroid" | dmenu -x 14 -y 8 -w 1340 -h 35 -i -p "Unmount a USB drive or Android device?")" || exit 1
+	choice="$(printf "USB\\nAndroid" | dmenu -x 20 -y 20 -w 1318 -h 35 -i -p "Unmount a USB drive or Android device?")" || exit 1
 	case "$choice" in
 		USB) unmountusb ;;
 		Android) unmountandroid ;;
