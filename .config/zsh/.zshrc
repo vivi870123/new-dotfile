@@ -88,6 +88,8 @@ export ZSH_TMUX_AUTOSTART=true
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 

@@ -1,4 +1,4 @@
-source /usr/share/zsh/share/antigen.zsh
+source /home/linuxbrew/.linuxbrew/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
