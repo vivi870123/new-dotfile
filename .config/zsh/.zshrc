@@ -90,6 +90,10 @@ export ZSH_TMUX_AUTOSTART=true
 
 [ -d /home/linuxbrew/.linuxbrew ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 

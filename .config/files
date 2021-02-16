@@ -9,9 +9,8 @@ cfm	${XDG_CONFIG_HOME:-$HOME/.config}/mutt/muttrc
 cfmb	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/bindings
 cfmc	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/config
 cfp	${XDG_CONFIG_HOME:-$HOME/.config}/polybar/config
-cfq	${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser/
 cfT 	${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf
-cft 	${XDG_CONFIG_HOME:-$HOME/.config}/kitty/kitty.conf
+cft 	${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml
 cftd 	${XDG_CONFIG_HOME:-$HOME/.config}/transmission-daemon/settings.json
 cfv	${XDG_CONFIG_HOME:-$HOME/.config}/nvim/
 cff 	${XDG_CONFIG_HOME:-$HOME/.config}/vifm/vifmrc
