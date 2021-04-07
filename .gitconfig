@@ -1,3 +1,5 @@
 [user]
 	email = vivi870123@gmail.com
 	name = James Rogers-Wright
+[init]
+	defaultBranch = master

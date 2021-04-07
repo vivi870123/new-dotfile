@@ -1,15 +1,21 @@
 #!/bin/sh
 
-# Use neovim for vim if present.
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
+# sudo not required for some system commands
+for x in mount umount sv pacman updatedb su ; do
+	alias $x="sudo $x"
+done
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	vim="nvim" \
+	vimdiff="nvim -d" \
 	batt="acpi" \
-	cp="cp -v" \
-	mv="mv -v" \
-	rm="rm -v" \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
@@ -19,11 +25,12 @@ alias \
 # Colorize commands when possible.
 alias \
 	grep="grep --color=auto" \
+	l="ls -l" \
+	ll"ls -la" \
 	ls="exa --color=always" \
 	lh="ls -alt=changed | head -n 15" \
 	la="ls -alFh" \
 	ld="ls -ld .*" \
-	ll="ls -l" \
 	lr="ls -R" \
 	dud='du -d 1 -h' \
 	duf='du -sh *' \
@@ -57,7 +64,7 @@ alias \
 # Some other stuff
 alias \
 	magit="nvim -c MagitOnly" \
-	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	:q="exit" \
 	j="z" \
 	c="clear" \

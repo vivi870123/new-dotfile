@@ -12,11 +12,8 @@ window:
     y: 2
 
   dynamic_padding: false
-
   decorations: full
-
   startup_mode: Windowed
-
   dynamic_title: true
 
 scrolling:
@@ -155,9 +152,9 @@ key_bindings:
   - { key: C,        mods: Control|Shift, mode: Vi, action: ClearSelection   }
   - { key: Insert,   mods: Shift,                   action: PasteSelection   }
   - { key: Key0,     mods: Control,                 action: ResetFontSize    }
-  - { key: Equals,   mods: Control,                 action: IncreaseFontSize }
-  - { key: Add,      mods: Control,                 action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,                 action: DecreaseFontSize }
+  # - { key: Equals,   mods: Control,                 action: IncreaseFontSize }
+  # - { key: Add,      mods: Control,                 action: IncreaseFontSize }
+  # - { key: Subtract, mods: Control,                 action: DecreaseFontSize }
   - { key: Minus,    mods: Control,                 action: DecreaseFontSize }
 
 debug:

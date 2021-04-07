@@ -1,0 +1,38 @@
+$include /etc/inputrc
+set editing-mode vi
+$if mode=vi
+
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+set show-all-if-ambiguous on
+set colored-completion-prefix on
+set colored-stats on
+set completion-ignore-case on
+set completion-map-case on
+set mark-symlinked-directories on
+
+# vi settings
+$if mode=vi
+    # normal mode
+    set keymap vi-command
+    "k": history-search-backward
+    "j": history-search-forward
+    "\C-l": clear-screen
+
+    # insert mode
+    set keymap vi-insert
+    "jj": vi-movement-mode
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+    "\C-l": clear-screen
+$else
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+    "\C-l": clear-screen
+$endif
+
+$endif
